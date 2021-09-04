@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<div>
+    <h1 th:text="${test.getTitle()}"></h1>
+</div>
+<div th:each="ask : ${test.getAsks()}">
+    <!--/*@thymesVar id="ask" type="by.comatoznik.Project1.entities.Ask"*/-->
+    <h2 th:text="${ask.getAsk()}">ads</h2>
+    <div th:each="answer:${ask.getAnswers()}">
+        <!--/*@thymesVar id="answer" type="by.comatoznik.Project1.entities.Answer"*/-->
+        <a th:text="${answer.getAnswer() + '(' + ((answer.getUserAnswers().size()*100.0)/ask.getUserAnswers().size()) + '%)'}">text</a>
+    </div>
+</div>
+<br/>
+<hr/>
+<a th:href="@{/admin-panel/tests}"><h3>Return to tests list.</h3></a>
+</body>
+</html>

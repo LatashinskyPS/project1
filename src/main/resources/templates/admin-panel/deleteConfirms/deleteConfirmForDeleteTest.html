@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+</head>
+<body>
+<h2>Are you sure?</h2>
+<form th:action="@{/admin-panel/tests/{id}(id=${id})}" th:method="DELETE">
+    <input type="submit" value="Yes!"/>
+</form>
+<form action="/admin-panel/tests" method="GET">
+    <input type="submit" value="No!"/>
+</form>
+</body>
+</html>

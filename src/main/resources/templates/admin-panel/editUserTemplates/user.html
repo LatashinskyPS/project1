@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${user.getUserName()}">VALUE</p>
+<p th:text="${'Email: ' + user.getUserEmail()}">VALUE</p>
+Roles:
+<div th:each="role : ${user.getRoles()} ">
+    <!--/*@thymesVar id="role" type="by.comatoznik.Project1.entities.Role"*/-->
+    <a th:text="${role.getName()}"></a>
+</div>
+<a th:href="@{/admin-panel/users/{id}/edit(id=${user.getId()})}"><h4>Click here if you want to edit.</h4></a>
+<a th:if="${superAdmin}" th:href="@{/super-admin-panel/roles/{id}(id=${user.getId()})}"><h3>Add/delete role.</h3></a>
+<br/>
+<hr/>
+<a href="/admin-panel/users"><h3>Back to users.</h3></a>
+</body>
+</html>

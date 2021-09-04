@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1 th:text="${test.getTitle()}"></h1>
+    <a th:href="@{/templates/admin-panel/testsCreate/{id}/editTitle(id=${test.getId()})}"><h3> Edit Title.</h3></a>
+</div>
+<div th:each="ask : ${test.getAsks()}">
+    <!--/*@thymesVar id="ask" type="by.comatoznik.Project1.entities.Ask"*/-->
+    <h2 th:text="${ask.getAsk()}">ads</h2>
+    <div>
+        <a th:href="@{/admin-panel/tests/{id}/editAsk(id=${ask.getId()})}"><h3> Edit ask.</h3></a>
+        <a th:href="@{/admin-panel/tests/asks/{id}/delete(id=${ask.getId()})}"><h3> Delete.</h3></a>
+    </div>
+    <div th:each="answer:${ask.getAnswers()}">
+        <!--/*@thymesVar id="answer" type="by.comatoznik.Project1.entities.Answer"*/-->
+        <a th:text="${answer.getAnswer()}">text</a>
+        <a th:href="@{/admin-panel/tests/{id}/editAnswer(id=${answer.getId()})}"> Edit answer.</a>
+        <a th:href="@{/admin-panel/tests/answers/{id}/delete(id=${answer.getId()})}"> Delete.</a>
+    </div>
+    <a th:href="@{/admin-panel/tests/{id}/newAnswer(id=${ask.getId()})}"><h3>Add new answer.</h3></a>
+</div>
+<br/>
+<hr/>
+<a th:href="@{/admin-panel/tests/{id}/new(id=${test.getId()})}"><h3>Add new ask.</h3></a>
+<a href="/admin-panel/tests"><h3>Return to tests list.</h3></a>
+</body>
+</html>

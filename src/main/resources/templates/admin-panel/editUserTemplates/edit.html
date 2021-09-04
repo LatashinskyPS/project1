@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/admin-panel/users/{id}(id=${user.getId()})}" th:object="${userValidation}">
+    <label for="userName">Enter name: </label>
+    <input type="text" th:field="*{userName}" id="userName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+    <br/>
+    <label for="userEmail">Enter email: </label>
+    <input type="text" th:field="*{userEmail}" id="userEmail"/>
+    <div style="color:red" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></div>
+    <br/>
+    <label for="password">Enter password: </label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+<a th:href="@{/admin-panel/users/{id}(id=${user.getId()})}"><h3>Return to user.</h3></a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Are you sure?</h2>
+<form th:action="@{/admin-panel/tests/answers/{id}(id=${answer.getId()})}" th:method="DELETE">
+    <input type="submit" value="Yes!"/>
+</form>
+<form th:action="@{/admin-panel/tests/{id}/edit(id=${answer.getAsk().getTest().getId()})}" th:method="GET">
+    <input type="submit" value="No!"/>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h2 th:text="${ask.getAsk()}"></h2>
+</div>
+<form th:method="POST" th:action="@{/tests/{id1}/{id2}(id1=${id1},id2=${id2})}" th:object="${userAnswerValidation}">
+    <div th:each="answer:${ask.getAnswers()}">
+        <!--/*@thymesVar id="answer" type="by.comatoznik.Project1.entities.Answer"*/-->
+        <input type="radio" th:field="*{numberOfAnswer}" id="enableUser" th:value="${counter.increment()}">
+        <label for="enableUser" th:text="${(counter.getCount()+1)+ ')'+ answer.getAnswer()}"></label><br/>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:if="${isUser}" href="/tests/"><h3>To tests.</h3></a>
+<a th:if="@{isAdmin}" href="/admin-panel/tests"><h3>To edit/create tests.</h3></a>
+<a th:if="${isAdmin}" href="/admin-panel/users"><h3>To show/edit all users.</h3></a>
+<a href="/logout"><h3>Logout.</h3></a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/admin-panel/tests/answers/{id}(id=${editAnswer.getId()})}" th:object="${editAnswer}">
+  <label for="name">Enter name: </label>
+  <input type="text" th:field="*{answer}" id="name"/>
+  <div style="color:red" th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></div>
+  <br/>
+  <input type="submit" value="Create!"/>
+</form>
+</body>
+</html>

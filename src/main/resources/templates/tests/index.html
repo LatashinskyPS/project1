@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="test :${tests}">
+    <!--/*@thymesVar id="test" type="by.comatoznik.Project1.entities.Test"*/-->
+    <a th:text="${test.getId()}"></a>
+    <a th:text="${test.getTitle()}"></a>
+    <a th:href="@{/tests/{id}/0/addUserAnswer(id=${test.getId})}"> Pass. </a>
+</div>
+<br>
+<hr>
+<a href="/authenticated"><h3>Return to main menu.</h3></a>
+</body>
+</html>

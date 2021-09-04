@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roles</title>
+</head>
+<body>
+<p th:text="${user.getUserName()}">VALUE</p>
+<p th:text="${'Email: ' + user.getUserEmail()}">VALUE</p>
+<form th:method="PATCH" th:action="@{/super-admin-panel/roles/{id}(id=${user.getId()})}" th:object="${roleValidation}">
+    <h4>User role.</h4>
+    <input type="radio" th:field="*{isUser}" id="enableUser" th:value="${true}">
+    <label for="enableUser">Enabled.</label><br/>
+    <input type="radio" th:field="*{isUser}" id="disableUser" th:value="${false}">
+    <label for="disableUser">Disabled.</label><br/>
+    <h4>Admin role.</h4>
+    <input type="radio" th:field="*{isAdmin}" id="enableAdmin" th:value="${true}">
+    <label for="enableAdmin">Enabled.</label><br/>
+    <input type="radio" th:field="*{isAdmin}" id="disableAdmin" th:value="${false}">
+    <label for="disableAdmin">Disabled.</label><br/>
+    <h4>Super admin role.</h4>
+    <input type="radio" th:field="*{isSuperAdmin}" id="enableSuperAdmin" th:value="${true}">
+    <label for="enableSuperAdmin">Enabled.</label><br/>
+    <input type="radio" th:field="*{isSuperAdmin}" id="disableSuperAdmin" th:value="${false}">
+    <label for="disableSuperAdmin">Disabled.</label><br/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

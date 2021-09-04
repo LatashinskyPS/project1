@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="test :${tests}">
+    <!--/*@thymesVar id="test" type="by.comatoznik.Project1.entities.Test"*/-->
+    <a th:text="${test.getId()}"></a>
+    <a> </a>
+    <a th:text="${test.getTitle()}"></a>
+    <a th:href="@{tests/{id}(id=${test.getId})}"> Show. </a>
+    <a th:href="@{tests/{id}/edit(id=${test.getId})}">Edit. </a>
+    <a th:href="@{tests/{id}/delete(id=${test.getId})}">Delete. </a>
+</div>
+<br/>
+<hr/>
+<a href="/admin-panel/tests/new"><h3>Create new test.</h3></a>
+<br>
+<hr>
+<a href="/authenticated"><h3>Return to main menu.</h3></a>
+</body>
+</html>
