@@ -3,12 +3,13 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+src/main/resources/database.properties
 
 ### STS ###
 .apt_generated
 .classpath
 .factorypath
-.project
+.projectпше
 .settings
 .springBeans
 .sts4-cache
